@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kosru Rahim Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+
+
+<body>
+<div class="scaled-site"><!-- Scale the whole site down to 80% -->
+  <header>
+    <div class="container">
+      <h1>Kosru Rahim Photographer</h1>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="topnav" id="myTopnav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html" class="no-border" id="activeNav">Contact</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="container">
+
+
+      <!-- Contact section -->
+      <div id="Contact" class="contact-section" style="margin-top: 4rem;">
+        <h2>Contact Me</h2>
+        <p>If you’d like to work together or have any questions, feel free to get in touch!</p>
+          <form class="contact-form" action="contact.php" method="POST" novalidate>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name..." required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your email..." required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Your message..." required></textarea>
+
+            <button type="submit">Send Message</button>
+          </form>
+      </div>
+
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <h2 class="logo">Kosru Rahim Photographer</h2>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/kosrurahim/"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61565131756774"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <!--<a href="#"><i class="fab fa-youtube"></i></a>-->
+      </div>
+      <ul class="footer-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <p class="copyright">© 2025 All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JS for Filters -->
+  <script>
+    document.querySelectorAll('#filter-btns li').forEach(button => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('#filter-btns li').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const target = button.getAttribute('data-target');
+        const items = document.querySelectorAll('.gallery-item');
+
+        items.forEach(item => {
+          if (target === 'all' || item.classList.contains(`category-${target}`)) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+
+  <!-- Responsive Nav Toggle -->
+  <script>
+    function myFunction() {
+      const x = document.getElementById("myTopnav");
+      x.classList.toggle("responsive");
+    }
+  </script>
+
+  </div><!-- End of scaled-site -->
+
+</body>
+</html>
